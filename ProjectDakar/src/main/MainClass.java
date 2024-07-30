@@ -46,6 +46,10 @@ public class MainClass {
 		corrida.getListaDeVeiculos().stream().sorted(Comparator.comparing((Veiculo v) -> v.obtainScore()).reversed())
 				.toList().forEach(v -> System.out.println(v));
 
+		
+		
+		for (int i=0; i< corrida.getListaDeVeiculos().size(); i++) {
+			
+		}
 	}
-
 }
