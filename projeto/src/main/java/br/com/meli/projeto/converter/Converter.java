@@ -1,70 +1,46 @@
 package br.com.meli.projeto.converter;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Converter {
 
-	public static char convertCodeToChar(String code) {
-		switch(code) {
-		case ".-":
-			return 'A';
-		case "-...":
-			return 'B';
-		case "-.-.":
-			return 'C';
-		case "-..":
-			return 'D';
-		case ".":
-			return 'E';
-		case "..-.":
-			return 'F';
-		case "--.":
-			return 'G';
-		case "....":
-			return 'H';
-		case "..":
-			return 'I';
-		case ".---":
-			return 'J';
-		case "-.-":
-			return 'K';
-		case ".-..":
-			return 'L';
-		case "--":
-			return 'M';
-		case "-.":
-			return 'N';
-		case "---":
-			return 'O';
-		case ".--.":
-			return 'P';
-		case "--.-":
-			return 'Q';
-		case ".-.":
-			return 'R';
-		case "...":
-			return 'S';
-		case "-":
-			return 'T';
-		case "..-":
-			return 'U';
-		case "...-":
-			return 'V';
-		case ".--":
-			return 'W';
-		case "-..-":
-			return 'X';
-		case "-.--":
-			return 'Y';
-		case "--..":
-			return 'Z';
-		
-		default:
-			return '\0';			
-		}
+	private static Map<String, Character> mapa = new HashMap<String,Character>(){{
+		put(".-", 'A');
+		put("-..." , 'B');
+		put("-.-.", 'C');
+		put("-..", 'D');
+		put(".", 'E');
+		put("..-.", 'F');
+		put("--.", 'G');
+		put("....", 'H');
+		put("..", 'I');
+		put(".---", 'J');
+		put("-.-", 'K');
+		put(".-..", 'L');
+		put("--", 'M');
+		put("-.", 'N');
+		put("---", 'O');
+		put(".--.", 'P');
+		put("--.-", 'Q');
+		put(".-.", 'R');
+		put("...", 'S');
+		put("-", 'T');
+		put("..-", 'U');
+		put("...-", 'V');
+		put(".--", 'W');
+		put("-..-", 'X');
+		put("-.--", 'Y');
+		put("--..", 'Z');			
+	}};
+	
+	public static Character convertCodeToChar(String code) {
+		return mapa.get(code);
 	}
 	
-	public static String convertToWord(String[] word) {
+	public static String convertToWord(String[] letters) {
 		String message="";
-		for (String letter: word) {
+		for (String letter: letters) {
 			message+=convertCodeToChar(letter);
 		}
 		return message;
