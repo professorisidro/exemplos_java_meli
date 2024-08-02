@@ -1,5 +1,6 @@
 package br.com.meli.vehicle.controller;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.meli.vehicle.model.Vehicle;
@@ -53,4 +55,46 @@ public class VehicleController {
 		service.deleteVehicle(id);
 		return ResponseEntity.ok("Vehicle Deleted");
 	}
+	
+	
+	// exemplos de controllers para busca
+	// como fica a url desse cabra?
+	// http://localhost:8080/api/v1/vehicle/searchbybrand?brand=Fiat
+	@GetMapping("/api/v1/vehicles/searchbybrand")
+	public ResponseEntity<List<Vehicle>> buscarPorMarca(@RequestParam(name = "brand") String key){
+		return ResponseEntity.ok(service.getByBrand(key));
+	}
+	
+	// como fica a url desse cabra?
+	// http://localhost:8080/api/v1/vehicle/searchbybrand?brand=Fiat&model=Uno
+	@GetMapping("/api/v1/vehicles/searchbybrandandmodel")
+	public ResponseEntity<List<Vehicle>> buscarPorMarcaEModelo(@RequestParam(name="brand") String marca,
+			                                                   @RequestParam(name="model") String modelo){
+		return ResponseEntity.ok(service.getByBrandAndModel(marca, modelo));
+	}
+	
+	// como fica a url desse cabra?
+	// http://localhost:8080/api/v1/vehicle/searchbydoors?number=xxx
+	@GetMapping("/api/v1/vehicles/searchbydoors")
+	public ResponseEntity<List<Vehicle>> buscarPorNumeroDePortas(@RequestParam(name="number") Integer number){
+		return ResponseEntity.ok(service.getByNumberOfDoors(number));
+	}
+	
+	// como fica a url desse cabra?
+	// http://localhost:8080/api/v1/vehicle/searchbydate?ini=2000-01-01&fim=2010-12-31
+	@GetMapping("/api/v1/vehicles/searchbydate")
+	public ResponseEntity<List<Vehicle>> buscarPorData(@RequestParam(name="ini") LocalDate ini,
+			                                           @RequestParam(name="fim") LocalDate fim)	{
+		return ResponseEntity.ok(service.getByManufacturingInterval(ini, fim));
+	}
+
+
+
+
+
+
+
+
+
+
 }

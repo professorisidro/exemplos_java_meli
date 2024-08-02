@@ -1,0 +1,8 @@
+"ID_VEHICLE","BRAND","COUNT_OF_OWNERS","CURRENCY","DOORS","MANUFACTURING_DATE","MODEL","KILOMETERS","PRICE"
+"1","Chevrolet","4","BRL","4","1996-05-18","Corsa","250000","6500.0"
+"3","Fiat","8","BRL","2","1996-10-08","Uno da Firma","200000","2100.0"
+"4","Toyota","1","BRL","4","2020-06-09","Corolla","85000","40000.0"
+"5","Ford","1","BRL","4","2018-07-15","Fiesta","45000","35000.0"
+"6","Chevrolet","1","BRL","4","2019-05-20","Onix","30000","42000.0"
+"7","Hyundai","1","BRL","4","2020-02-25","HB20","15000","52000.0"
+"8","Renault","1","BRL","4","2021-09-30","Kwid","10000","39000.0"
