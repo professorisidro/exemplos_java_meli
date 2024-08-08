@@ -29,7 +29,7 @@ public class VehicleController {
 	}
 	
 	@PostMapping("/api/v1/vehicles")
-	public ResponseEntity<Vehicle> addNewVehicle(@RequestBody Vehicle vehicle){
+	public ResponseEntity<?> addNewVehicle(@RequestBody Vehicle vehicle){
 		Vehicle res = service.saveVehicle(vehicle);
 		if (res != null) {
 			return ResponseEntity.status(201).body(res);
