@@ -40,4 +40,13 @@ public class Produto {
 		this.price = price;
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		if (obj instanceof Produto) {
+			Produto other = (Produto)obj;
+			return (other.getId().equals(this.id));
+		}
+		return false;
+	}
 }

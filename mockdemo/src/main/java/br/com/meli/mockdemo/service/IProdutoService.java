@@ -8,5 +8,6 @@ public interface IProdutoService {
 	
 	public List<Produto> readAllProducts();
 	public Produto getProdutoById(Integer id);
+	public Produto adicionarProduto(Produto novo);
 
 }
