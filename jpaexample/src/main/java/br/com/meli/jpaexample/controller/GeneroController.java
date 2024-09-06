@@ -2,6 +2,7 @@ package br.com.meli.jpaexample.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -11,6 +12,7 @@ import br.com.meli.jpaexample.model.Genero;
 import br.com.meli.jpaexample.repo.GeneroRepo;
 
 @RestController
+@CrossOrigin("*")
 public class GeneroController {
 	
 	@Autowired
