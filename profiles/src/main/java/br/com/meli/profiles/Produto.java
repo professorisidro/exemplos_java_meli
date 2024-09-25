@@ -1,8 +1,21 @@
 package br.com.meli.profiles;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "tbl_produto")
 public class Produto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	@Column(name = "nome", length = 100)
 	private String  nome;
+	@Column(name = "preco", nullable = false)
 	private Double  preco;
 	public Produto(Integer id, String nome, Double preco) {
 		super();

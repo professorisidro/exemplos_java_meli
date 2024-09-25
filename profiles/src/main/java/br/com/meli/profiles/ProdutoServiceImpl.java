@@ -8,22 +8,23 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProdutoServiceImpl implements IProdutoService{
 	
-	private ProdutoRepo repo;
+//	private ProdutoRepo repo;
+	private ProdutoH2Repo repo;
 	
 	@Autowired
-	public ProdutoServiceImpl(ProdutoRepo repo) {
+	public ProdutoServiceImpl(ProdutoH2Repo repo) {
 		this.repo = repo;
     }
 
 	@Override
 	public List<Produto> recuperarTodos() {
 		// TODO Auto-generated method stub
-		return repo.findAll();
+		return (List<Produto>)repo.findAll();
 	}
 
 	@Override
 	public Produto adicionarNovo(Produto p) {
 		// TODO Auto-generated method stub
-		return repo.create(p);
+		return repo.save(p);
 	}
 }
